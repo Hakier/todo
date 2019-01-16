@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule } from '@angular/material';
+import { ListComponent } from './list/list.component';
 import { ManagerComponent } from './manager/manager.component';
 import { TodoComponent } from './todo.component';
 
@@ -9,6 +10,7 @@ import { TodoComponent } from './todo.component';
   declarations: [
     TodoComponent,
     ManagerComponent,
+    ListComponent,
   ],
   imports: [
     CommonModule,
@@ -16,6 +18,7 @@ import { TodoComponent } from './todo.component';
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatCardModule,
   ],
   exports: [TodoComponent],
 })

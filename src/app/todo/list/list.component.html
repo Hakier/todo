@@ -1,0 +1,12 @@
+<mat-card *ngFor="let todo of todos">
+  <mat-card-header>
+    <mat-card-subtitle>DATE_OF_TODO</mat-card-subtitle>
+    <mat-card-title>{{ todo.person }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    {{ todo.task }}
+  </mat-card-content>
+  <mat-card-actions align="start">
+    <button mat-button>Done!</button>
+  </mat-card-actions>
+</mat-card>

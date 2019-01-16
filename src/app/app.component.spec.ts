@@ -1,27 +1,43 @@
-import { TestBed, async } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+
+@Component({
+  selector: 'app-toolbar',
+  template: '{{ title }}',
+})
+class ToolbarComponent {
+  @Input() title: string;
+}
+
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let compiled: any;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ToolbarComponent,
       ],
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to todo!');
+
+    compiled = fixture.debugElement.nativeElement;
+  });
+  it('should create the app', async(() => {
+    expect(component).toBeTruthy();
+  }));
+  it(`should have as title 'TODO'`, async(() => {
+    expect(component.title).toEqual('TODO');
+  }));
+  it('should render toolbar component', async(() => {
+    expect(compiled.querySelector('app-toolbar').textContent).toContain('TODO');
   }));
 });

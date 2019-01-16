@@ -6,7 +6,7 @@ import { TodoComponent } from './todo.component';
   selector: 'app-manager',
   template: '',
 })
-class TaskManagerComponent {
+class ManagerComponent {
 }
 
 describe('TodoComponent', () => {
@@ -18,7 +18,7 @@ describe('TodoComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         TodoComponent,
-        TaskManagerComponent,
+        ManagerComponent,
       ],
     })
       .compileComponents();

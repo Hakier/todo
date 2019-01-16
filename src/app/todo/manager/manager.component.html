@@ -1,9 +1,11 @@
-<mat-form-field>
-  <input class="name" matInput placeholder="Name">
-</mat-form-field>
-<mat-form-field>
-  <input class="task" matInput placeholder="Task">
-</mat-form-field>
-<button class="add" mat-icon-button>
-  <mat-icon aria-label="Add">add_box</mat-icon>
-</button>
+<form (ngSubmit)="create()" [formGroup]="todoForm">
+  <mat-form-field>
+    <input class="name" formControlName="person" matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input class="task" formControlName="task" matInput placeholder="Task">
+  </mat-form-field>
+  <button [disabled]="!todoForm.valid" class="add" mat-icon-button type="submit">
+    <mat-icon aria-label="Add">add_box</mat-icon>
+  </button>
+</form>

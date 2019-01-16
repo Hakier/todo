@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
-  styleUrls: ['./manager.component.css']
+  styleUrls: ['./manager.component.css'],
 })
-export class TaskManagerComponent implements OnInit {
+export class ManagerComponent {
+  @Output() created = new EventEmitter();
 
-  constructor() { }
+  todoForm = this.fb.group({
+    person: ['', Validators.required],
+    task: ['', Validators.required],
+  });
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder) { }
+
+  create(): void {
+    this.created.emit(this.todoForm.value);
   }
-
 }
+

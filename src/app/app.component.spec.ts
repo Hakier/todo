@@ -10,6 +10,13 @@ class ToolbarComponent {
   @Input() title: string;
 }
 
+@Component({
+  selector: 'app-todo',
+  template: '',
+})
+class TodoComponent {
+}
+
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
@@ -20,6 +27,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         ToolbarComponent,
+        TodoComponent,
       ],
     }).compileComponents();
   }));
@@ -39,5 +47,8 @@ describe('AppComponent', () => {
   }));
   it('should render toolbar component', async(() => {
     expect(compiled.querySelector('app-toolbar').textContent).toContain('TODO');
+  }));
+  it('should render todo component', async(() => {
+    expect(compiled.querySelector('app-todo')).toBeTruthy();
   }));
 });
